@@ -1,0 +1,16 @@
+[
+{
+  "modid": "signstory",
+  "name": "Sign Story Mod",
+  "description": "A Mod for creating stories with signs.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["MaximustheMiner"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
