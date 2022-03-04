@@ -15,7 +15,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import maximuslotro.signstory.commands.AHK;
+import maximuslotro.signstory.commands.Settings;
 import maximuslotro.signstory.commands.BaseCommand;
 import maximuslotro.signstory.util.ChatUtil;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -36,7 +36,7 @@ import javax.annotation.Nullable;
 public class BetterSigns
 {
     public static final String MOD_ID = "signstory";
-    public static final Block block_sign = (Block)Block.getBlockFromName("sign");
+    public static final Block block_sign = (Block)Block.blockRegistry.getObject("standing_sign");
     public static final Block wall_sign = (Block)Block.blockRegistry.getObject("wall_sign");
     private static final Logger LOGGER = LogManager.getLogger();
 	public static @Nullable BaseCommand rootCommand;
@@ -46,11 +46,11 @@ public class BetterSigns
         FMLCommonHandler.instance().bus().register(this);
         MinecraftForge.EVENT_BUS.register(this);
         try {
-        	ClientCommandHandler.instance.registerCommand(new AHK());
+        	ClientCommandHandler.instance.registerCommand(new Settings());
         } catch (Exception e) {
         	System.out.println("error");
         }
-
+        Registry.NoGui = false;
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -58,7 +58,6 @@ public class BetterSigns
 		if (e.action == Action.RIGHT_CLICK_BLOCK) { 
 			if (e.world.getBlock(e.x, e.y, e.z) == wall_sign|| e.world.getBlock(e.x, e.y, e.z) == block_sign) {
             final TileEntitySign sign = (TileEntitySign) e.world.getTileEntity(e.x, e.y, e.z);
-            LOGGER.log(Level.DEBUG, e);
             ChatUtil.chatError(e.entityPlayer, "Sign Clicked!");
             /*
             BlockEntity tileEntity = event.getWorld().getBlockEntity(event.getPos());
@@ -75,7 +74,7 @@ public class BetterSigns
     @SubscribeEvent
     public void onRenderGui(GuiOpenEvent event) {
         if(event.gui instanceof GuiEditSign) {
-        	event.setCanceled(true);
+        	if (Registry.NoGui == true) {event.setCanceled(true);}
         	}
     }
 }
