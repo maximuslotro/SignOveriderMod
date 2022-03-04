@@ -12,7 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 public class Keybinds {
 
-    public static KeyBinding noSignGui = new KeyBinding("key.bettersigns.nosigntext", Keyboard.KEY_P , "key.categories.bettersigns");
+    public static KeyBinding noSignGui = new KeyBinding("key.signstory.nosigntext", Keyboard.KEY_I , "key.categories.signstory");
 
     @SubscribeEvent
     public static void registerKeyBindings(final FMLInitializationEvent event) {
