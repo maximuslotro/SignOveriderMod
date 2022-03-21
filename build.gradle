@@ -23,6 +23,9 @@ minecraft {
     runDir = "eclipse"
 }
 
+sourceCompatibility=1.8
+targetCompatibility=1.8
+
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
@@ -38,7 +41,6 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
 }
-
 processResources
 {
     // this will ensure that this task is redone when the versions change.
