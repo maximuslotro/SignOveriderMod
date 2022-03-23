@@ -1,4 +1,4 @@
-package maximuslotro.signstory.util;
+package maximuslotro.signoverider.util;
 
 import java.text.MessageFormat;
 import java.text.NumberFormat;

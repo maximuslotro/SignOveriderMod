@@ -1,4 +1,4 @@
-package maximuslotro.signstory;
+package maximuslotro.signoverider;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSign;
@@ -22,10 +22,9 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import maximuslotro.signstory.commands.Settings;
-import maximuslotro.signstory.Compact.CompatTileEntitySign;
-import maximuslotro.signstory.commands.BaseCommand;
-import maximuslotro.signstory.util.ChatUtil;
+import maximuslotro.signoverider.commands.BaseCommand;
+import maximuslotro.signoverider.commands.Settings;
+import maximuslotro.signoverider.util.ChatUtil;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -47,7 +46,7 @@ import java.util.Objects;
 
 import javax.annotation.Nullable;
 
-@Mod(modid = "signstory", version = "1", name = "Sign Story Mod", acceptedMinecraftVersions = "1.7.10")
+@Mod(modid = "signoverider", name = "Sign Overider Mod", acceptedMinecraftVersions = "1.7.10")
 public class BetterSigns
 {
     public static final Block block_sign = (Block)Block.blockRegistry.getObject("standing_sign");
@@ -74,13 +73,6 @@ public class BetterSigns
             final TileEntitySign sign = (TileEntitySign) e.world.getTileEntity(e.x, e.y, e.z);
             ChatUtil.chatError(e.entityPlayer, "Sign Clicked!");
             }
-		}
-    }
-    
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public void SignPlace(PlaceEvent e) {
-		if (e.placedBlock == block_sign||e.placedBlock == wall_sign) { 
-			
 		}
     }
 

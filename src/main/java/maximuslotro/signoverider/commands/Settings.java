@@ -1,16 +1,16 @@
-package maximuslotro.signstory.commands;
+package maximuslotro.signoverider.commands;
 
-import maximuslotro.signstory.Registry;
-import maximuslotro.signstory.util.ChatUtil;
+import maximuslotro.signoverider.Registry;
+import maximuslotro.signoverider.util.ChatUtil;
 import net.minecraft.command.ICommandSender;
 public class Settings extends BaseCommand {
 	@Override
 	public String getCommandName() {
-		return "SignStory";
+		return "SignOverider";
 	}
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "/SignStory";
+		return "/SignOverider";
 	}
 	@Override
 	public void processCommand(ICommandSender s, String[] args) {

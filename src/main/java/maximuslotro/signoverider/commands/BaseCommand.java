@@ -1,4 +1,4 @@
-package maximuslotro.signstory.commands;
+package maximuslotro.signoverider.commands;
 
 import java.util.ArrayList;
 import java.util.List;

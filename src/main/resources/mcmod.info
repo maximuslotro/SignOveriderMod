@@ -1,8 +1,8 @@
 [
 {
-  "modid": "signstory",
-  "name": "Sign Story Mod",
-  "description": "A Mod for creating stories with signs.",
+  "modid": "signoverider",
+  "name": "Sign Overider Mod",
+  "description": "A Mod for disabling Sign gui from appearing when a sign is placed.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
