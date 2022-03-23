@@ -15,7 +15,7 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.0"
-group= "com.maximuslotro.signoverider" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "maximuslotro.signoverider" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "signoverider"
 
 minecraft {
