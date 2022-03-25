@@ -1,17 +1,8 @@
 package maximuslotro.signoverider;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSign;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiEditSign;
-import net.minecraft.client.network.NetHandlerPlayClient;
-import net.minecraft.client.settings.GameSettings;
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.item.ItemSign;
-import net.minecraft.network.play.client.C12PacketUpdateSign;
-import net.minecraft.tileentity.TileEntitySign;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.GuiScreenEvent.ActionPerformedEvent;
@@ -24,34 +15,21 @@ import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import maximuslotro.signoverider.commands.BaseCommand;
 import maximuslotro.signoverider.commands.Settings;
-import maximuslotro.signoverider.util.ChatUtil;
+
+import javax.annotation.Nullable;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.net.Priority;
-import org.lwjgl.input.Keyboard;
-
-import com.google.common.collect.Lists;
-
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
-import javax.annotation.Nullable;
 
 @Mod(modid = "signoverider", name = "Sign Overider Mod", acceptedMinecraftVersions = "1.7.10")
 public class BetterSigns
 {
-    public static final Block block_sign = (Block)Block.blockRegistry.getObject("standing_sign");
-    public static final Block wall_sign = (Block)Block.blockRegistry.getObject("wall_sign");
-    private static final Logger LOGGER = LogManager.getLogger();
+    //public static final Block block_sign = (Block)Block.blockRegistry.getObject("standing_sign");
+    //public static final Block wall_sign = (Block)Block.blockRegistry.getObject("wall_sign");
 	public static @Nullable BaseCommand rootCommand;
     @EventHandler
     public void init(FMLInitializationEvent event)
@@ -65,7 +43,7 @@ public class BetterSigns
         }
         Registry.NoGui = false;
     }
-
+/*
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void interact(PlayerInteractEvent e) {
 		if (e.action == Action.RIGHT_CLICK_BLOCK) { 
@@ -75,15 +53,11 @@ public class BetterSigns
             }
 		}
     }
-
+*/
 	@SubscribeEvent
     public void onRenderGui(GuiOpenEvent event) {
         if(event.gui instanceof GuiEditSign) {
         	if (Registry.NoGui == true) {event.setCanceled(true);}
-        	if (Registry.NoGui == false) 
-        	{
-        		
-        	}
         }
     }
 
