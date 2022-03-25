@@ -6,7 +6,7 @@
     <img alt="downloads" src="https://img.shields.io/github/downloads/maximuslotro/SignOveriderMod/total?color=56bcd3" />
   </a>
   <a href="https://github.com/maximuslotro/SignStory/main/LICENSE.md" target="_blank">
-    <img alt="license" src="https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat" />
+    <img alt="license" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" />
   </a>
 </p>
 
