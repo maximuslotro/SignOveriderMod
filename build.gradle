@@ -8,54 +8,47 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath project.forgegradle
     }
 }
 
 apply plugin: 'forge'
 
-version = "1.0"
-group= "maximuslotro.signoverider" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "signoverider"
+ext.modversion = "${project.version_major}.${project.version_minor}"
+group = project.group
+version = "${project.version_minecraft}-${modversion}"
 
-minecraft {
-    version = "1.7.10-10.13.4.1614-1.7.10"
-    runDir = "eclipse"
+minecraft{
+	version = "${project.version_minecraft}-${project.version_forge}"
+    
+    replaceIn 'Reference.java'
+    replace '${modid}', project.modid
+    replace '${modname}', project.modname
+    replace '${version}', modversion
+    replace '${mcversion}', project.version_minecraft
+    replace '${forgeversion}', project.version_forge
 }
 
 sourceCompatibility=1.8
 targetCompatibility=1.8
 
 dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
 }
-processResources
-{
+processResources {
     // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand([
+                'modid'          : project.modid,
+                'modname'        : project.modname,
+                'version'        : modversion,
+                'mcversion'      : project.version_minecraft,
+                'forgeversion'   : project.version_forge,
+                'minforgeversion': project.hasProperty('version_minforge') ? project.version_minforge : project.version_forge,
+        ])
     }
-        
-    // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
