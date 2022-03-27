@@ -24,7 +24,7 @@ Easily disable a sign gui from appearing when placing a sign. Only one simple co
 
 ## Downloads
 
-Downloads can be found on [github](https://github.com/maximuslotr/SignOveriderMod/releases).
+Downloads can be found on [github](https://github.com/maximuslotro/SignOveriderMod/releases).
 
 ## Installation
 
