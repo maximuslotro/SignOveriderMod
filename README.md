@@ -15,7 +15,7 @@
 
 ## About
 
-Easily disable a sign gui from appearing when placing a sign. Only one simple command to toggle this functionality (/SignOverider). Should be compatable with almost all mods.
+Easily disable the sign gui from appearing when placing a sign. Only one simple command to toggle this functionality (/SignOverider). Should be compatable with almost all mods.
 
 ## License
 * Sign Overider Mod
